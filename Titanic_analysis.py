@@ -9,5 +9,7 @@ print(df.columns)
 df["Age"]=df["Age"].fillna(df["Age"].median())
 df["Embarked"]=df["Embarked"].fillna(df["Embarked"].mode()[0])
 print(df["Cabin"].isnull().sum())
+df["Cabinknown"]=df["Cabin"].notna().astype(int)
+print(df["Cabinknown"].value_counts())
 
 
