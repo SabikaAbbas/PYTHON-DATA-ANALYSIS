@@ -11,5 +11,5 @@ df["Embarked"]=df["Embarked"].fillna(df["Embarked"].mode()[0])
 print(df["Cabin"].isnull().sum())
 df["Cabinknown"]=df["Cabin"].notna().astype(int)
 print(df["Cabinknown"].value_counts())
-
+print(df["Survived"].value_counts())
 
