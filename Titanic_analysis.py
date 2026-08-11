@@ -6,5 +6,7 @@ print(df.describe())
 print(df.isnull().sum())
 print(df.duplicated().sum())
 print(df.columns)
+df["Age"]=df["Age"].fillna(df["Age"].median())
+
 
 
