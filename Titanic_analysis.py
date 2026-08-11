@@ -15,3 +15,4 @@ print(df["Survived"].value_counts())
 survival_rate=df["Survived"].mean()*100
 print(f"overall survival rate: {survival_rate:.2f}%")
 print(df.groupby("Sex")["Survived"].mean().mul(100).round(2))
+print(df.groupby("Pclass")["Survived"].mean().mul(100).round(2))
