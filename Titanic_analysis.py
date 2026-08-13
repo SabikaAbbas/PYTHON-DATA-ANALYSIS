@@ -16,3 +16,12 @@ survival_rate=df["Survived"].mean()*100
 print(f"overall survival rate: {survival_rate:.2f}%")
 print(df.groupby("Sex")["Survived"].mean().mul(100).round(2))
 print(df.groupby("Pclass")["Survived"].mean().mul(100).round(2))
+import matplotlib.pyplot as plt
+survival_by_class = df.groupby("Pclass")["Survived"].mean() * 100
+
+survival_by_class.plot(kind="bar")
+
+plt.title("Survival Rate by Passenger Class")
+plt.xlabel("Passenger Class")
+plt.ylabel("Survival Rate (%)")
+plt.show()
