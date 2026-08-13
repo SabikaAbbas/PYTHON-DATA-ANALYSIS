@@ -24,9 +24,12 @@ plt.xlabel("Passenger Class")
 plt.ylabel("Survival Rate (%)")
 plt.show()
 survival_by_gender = df.groupby("Sex")["Survived"].mean() * 100
-
 survival_by_gender.plot(kind="bar")
-
+plt.hist(df["Age"], bins=20)
+plt.title("Age Distribution of Titanic Passengers")
+plt.xlabel("Age")
+plt.ylabel("Number of Passengers")
+plt.show()
 plt.title("Survival Rate by Gender")
 plt.xlabel("Gender")
 plt.ylabel("Survival Rate (%)")
