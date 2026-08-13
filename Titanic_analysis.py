@@ -18,10 +18,16 @@ print(df.groupby("Sex")["Survived"].mean().mul(100).round(2))
 print(df.groupby("Pclass")["Survived"].mean().mul(100).round(2))
 import matplotlib.pyplot as plt
 survival_by_class = df.groupby("Pclass")["Survived"].mean() * 100
-
 survival_by_class.plot(kind="bar")
-
 plt.title("Survival Rate by Passenger Class")
 plt.xlabel("Passenger Class")
+plt.ylabel("Survival Rate (%)")
+plt.show()
+survival_by_gender = df.groupby("Sex")["Survived"].mean() * 100
+
+survival_by_gender.plot(kind="bar")
+
+plt.title("Survival Rate by Gender")
+plt.xlabel("Gender")
 plt.ylabel("Survival Rate (%)")
 plt.show()
