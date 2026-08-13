@@ -34,3 +34,8 @@ plt.title("Survival Rate by Gender")
 plt.xlabel("Gender")
 plt.ylabel("Survival Rate (%)")
 plt.show()
+df["AgeGroup"] = pd.cut(
+    df["Age"],
+    bins=[0, 12, 18, 35, 60, 100],
+    labels=["Child", "Teen", "Young Adult", "Adult", "Senior"])
+print(df["AgeGroup"].value_counts())
