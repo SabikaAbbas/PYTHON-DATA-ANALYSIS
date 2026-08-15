@@ -49,3 +49,5 @@ plt.title("Survival Rate by Age Group")
 plt.xlabel("Age Group")
 plt.ylabel("Survival Rate (%)")
 plt.show()
+survival_gender_class = df.groupby(["Pclass", "Sex"])["Survived"].mean() * 100
+print(survival_gender_class.round(2))
