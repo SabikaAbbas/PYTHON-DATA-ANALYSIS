@@ -39,3 +39,5 @@ df["AgeGroup"] = pd.cut(
     bins=[0, 12, 18, 35, 60, 100],
     labels=["Child", "Teen", "Young Adult", "Adult", "Senior"])
 print(df["AgeGroup"].value_counts())
+survival_by_age = df.groupby("AgeGroup", observed=True)["Survived"].mean() * 100
+print(survival_by_age.round(2))
