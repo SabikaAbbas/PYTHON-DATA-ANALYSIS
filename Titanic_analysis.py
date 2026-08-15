@@ -42,12 +42,17 @@ print(df["AgeGroup"].value_counts())
 survival_by_age = df.groupby("AgeGroup", observed=True)["Survived"].mean() * 100
 print(survival_by_age.round(2))
 survival_by_age = df.groupby("AgeGroup", observed=True)["Survived"].mean() * 100
-
 survival_by_age.plot(kind="bar")
-
 plt.title("Survival Rate by Age Group")
 plt.xlabel("Age Group")
 plt.ylabel("Survival Rate (%)")
 plt.show()
 survival_gender_class = df.groupby(["Pclass", "Sex"])["Survived"].mean() * 100
 print(survival_gender_class.round(2))
+survival_gender_class = df.groupby(  ["Pclass", "Sex"])["Survived"].mean() * 100
+survival_gender_class.unstack().plot(kind="bar")
+plt.title("Survival Rate by Gender and Passenger Class")
+plt.xlabel("Passenger Class")
+plt.ylabel("Survival Rate (%)")
+plt.legend(title="Gender")
+plt.show()
