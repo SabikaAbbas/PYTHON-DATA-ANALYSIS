@@ -41,3 +41,11 @@ df["AgeGroup"] = pd.cut(
 print(df["AgeGroup"].value_counts())
 survival_by_age = df.groupby("AgeGroup", observed=True)["Survived"].mean() * 100
 print(survival_by_age.round(2))
+survival_by_age = df.groupby("AgeGroup", observed=True)["Survived"].mean() * 100
+
+survival_by_age.plot(kind="bar")
+
+plt.title("Survival Rate by Age Group")
+plt.xlabel("Age Group")
+plt.ylabel("Survival Rate (%)")
+plt.show()
