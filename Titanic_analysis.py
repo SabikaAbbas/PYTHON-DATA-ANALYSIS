@@ -56,3 +56,5 @@ plt.xlabel("Passenger Class")
 plt.ylabel("Survival Rate (%)")
 plt.legend(title="Gender")
 plt.show()
+df["FamilySize"] = df["SibSp"] + df["Parch"] + 1
+print(df["FamilySize"].value_counts().sort_index())
