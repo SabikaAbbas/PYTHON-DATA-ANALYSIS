@@ -1,22 +1,29 @@
+# 1. Import Libraries
 import pandas as pd
+import matplotlib.pyplot as plt
+# 2. Load Dataset
 df= pd.read_csv("train.csv")
+# 3. Check Missing Values
 print(df.head())
 print(df.info())
 print(df.describe())
 print(df.isnull().sum())
 print(df.duplicated().sum())
 print(df.columns)
+# 4. Data Cleaning
 df["Age"]=df["Age"].fillna(df["Age"].median())
 df["Embarked"]=df["Embarked"].fillna(df["Embarked"].mode()[0])
+# 5. Feature Engineering
 print(df["Cabin"].isnull().sum())
 df["Cabinknown"]=df["Cabin"].notna().astype(int)
 print(df["Cabinknown"].value_counts())
+# 6. Survival Analysis
 print(df["Survived"].value_counts())
 survival_rate=df["Survived"].mean()*100
 print(f"overall survival rate: {survival_rate:.2f}%")
 print(df.groupby("Sex")["Survived"].mean().mul(100).round(2))
 print(df.groupby("Pclass")["Survived"].mean().mul(100).round(2))
-import matplotlib.pyplot as plt
+# 7. Visualizations
 survival_by_class = df.groupby("Pclass")["Survived"].mean() * 100
 survival_by_class.plot(kind="bar")
 plt.title("Survival Rate by Passenger Class")
